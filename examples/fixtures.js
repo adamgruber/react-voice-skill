@@ -33,16 +33,6 @@ const baseRequest = {
   },
 };
 
-export const LaunchRequest = () => ({
-  ...baseRequest,
-  request: {
-    locale: 'en-US',
-    timestamp: new Date().toISOString(),
-    type: 'LaunchRequest',
-    requestId: 'amzn1.echo-api.request.[unique-value-here]',
-  },
-});
-
 export const IntentRequest = attrs => ({
   ...baseRequest,
   session: {

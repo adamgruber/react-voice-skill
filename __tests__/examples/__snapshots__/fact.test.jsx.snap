@@ -1,0 +1,58 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HelloWorld should generate output for AMAZON.CancelIntent intent 1`] = `
+Array [
+  Object {
+    "response": Object {
+      "outputSpeech": Object {
+        "ssml": "<speak> Goodbye! </speak>",
+        "type": "SSML",
+      },
+      "shouldEndSession": true,
+    },
+    "sessionAttributes": Object {},
+    "userAgent": "ask-nodejs/1.0.25 Node/v8.9.0",
+    "version": "1.0",
+  },
+]
+`;
+
+exports[`HelloWorld should generate output for AMAZON.HelpIntent intent 1`] = `
+Array [
+  Object {
+    "response": Object {
+      "outputSpeech": Object {
+        "ssml": "<speak> You can say tell me a space fact, or, you can say exit... What can I help you with? </speak>",
+        "type": "SSML",
+      },
+      "reprompt": Object {
+        "outputSpeech": Object {
+          "ssml": "<speak> What can I help you with? </speak>",
+          "type": "SSML",
+        },
+      },
+      "shouldEndSession": false,
+    },
+    "sessionAttributes": Object {},
+    "userAgent": "ask-nodejs/1.0.25 Node/v8.9.0",
+    "version": "1.0",
+  },
+]
+`;
+
+exports[`HelloWorld should generate output for AMAZON.StopIntent intent 1`] = `
+Array [
+  Object {
+    "response": Object {
+      "outputSpeech": Object {
+        "ssml": "<speak> Goodbye! </speak>",
+        "type": "SSML",
+      },
+      "shouldEndSession": true,
+    },
+    "sessionAttributes": Object {},
+    "userAgent": "ask-nodejs/1.0.25 Node/v8.9.0",
+    "version": "1.0",
+  },
+]
+`;
