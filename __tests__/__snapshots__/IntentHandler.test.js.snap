@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`IntentHandler should have base properties 1`] = `
+IntentHandler {
+  "children": Array [],
+  "props": Object {},
+  "root": undefined,
+  "type": undefined,
+}
+`;

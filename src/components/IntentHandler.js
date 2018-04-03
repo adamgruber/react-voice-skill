@@ -19,8 +19,8 @@ class IntentHandler extends Base {
       console.log(handlerResponse);
 
       // Handlers must return a <Response> element which we need to render
-      if (typeof handlerResponse !== 'object') {
-        throw new Error('IntentHandler handler function must return a single <Response> element.');
+      if (handlerResponse.type !== 'RESPONSE') {
+        throw new Error('IntentHandler handler function must return a <Response> element.');
       }
 
       return renderAlexaResponse(handlerResponse, handlerContext);
@@ -36,21 +36,11 @@ class IntentHandler extends Base {
       throw new Error('IntentHandler can only wrap a single <Response> child.');
     }
 
-    // If child is not a <Response>, throw an error
-    if (firstChild.props.$$type !== 'Response') {
-      throw new Error('IntentHandler can only wrap a single <Response> child.');
-    }
-
     // Turn our Response into a React element and render it
     return renderAlexaResponse(
       createElement('RESPONSE', { ...firstChild.props }),
       handlerContext,
     );
-
-    // If there is only one child and it is a string, call `speak`
-    // if (this.children.length === 1 && typeof this.children[0] === 'string') {
-    //   this.speak(this.children[0]);
-    // }
   }
 
   /**
