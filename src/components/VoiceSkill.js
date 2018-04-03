@@ -10,9 +10,13 @@ class VoiceSkill extends Base {
     const handlers = {};
     this.children.forEach((child) => {
       console.log('\nVoiceSkill render child:');
-      handlers[child.props.intent] = function () {
-        child.render(this);
-      };
+      const { intent, aliases } = child.props;
+      const intents = [intent].concat(aliases || []);
+      intents.forEach((intentName) => {
+        handlers[intentName] = function () {
+          child.render(this);
+        };
+      });
     });
     return handlers;
   }
