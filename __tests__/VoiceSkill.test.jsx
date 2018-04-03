@@ -1,5 +1,5 @@
 import React from 'react';
-import { VoiceSkill, IntentHandler, Response } from '../src';
+import { VoiceSkill, IntentHandler } from '../src';
 import VoiceSkillComp from '../src/components/VoiceSkill';
 import render from './testRenderer';
 import { IntentRequest, APP_ID } from '../examples/fixtures';
@@ -31,15 +31,6 @@ describe('VoiceSkill', () => {
       </VoiceSkill>
     );
     expect(renderApp()).toMatchSnapshot();
-  });
-
-  it('should throw with invalid children', () => {
-    App = () => (
-      <VoiceSkill>
-        <Response />
-      </VoiceSkill>
-    );
-    expect(() => renderApp()).toThrow('Response is not a valid child of VoiceSkill');
   });
 
   describe('getValidChildren', () => {
