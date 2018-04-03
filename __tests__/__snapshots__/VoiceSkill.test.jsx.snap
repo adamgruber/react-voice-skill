@@ -1,0 +1,74 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`VoiceSkill should render element 1`] = `
+Object {
+  "component": VoiceSkill {
+    "children": Array [],
+    "props": Object {
+      "$$type": "VoiceSkill",
+    },
+    "root": null,
+    "type": "VoiceSkill",
+  },
+  "rendered": Object {},
+}
+`;
+
+exports[`VoiceSkill should render element with children 1`] = `
+Object {
+  "component": VoiceSkill {
+    "children": Array [
+      IntentHandler {
+        "children": Array [],
+        "props": Object {
+          "$$type": "IntentHandler",
+          "intent": "LaunchRequest",
+        },
+        "root": AlexaRequestEmitter {
+          "_events": Object {
+            ":ask": [Function],
+            ":askWithCard": [Function],
+            ":askWithLinkAccountCard": [Function],
+            ":askWithPermissionCard": [Function],
+            ":confirmIntent": [Function],
+            ":confirmIntentWithCard": [Function],
+            ":confirmSlot": [Function],
+            ":confirmSlotWithCard": [Function],
+            ":delegate": [Function],
+            ":elicitSlot": [Function],
+            ":elicitSlotWithCard": [Function],
+            ":responseReady": [Function],
+            ":saveState": [Function],
+            ":saveStateError": [Function],
+            ":tell": [Function],
+            ":tellWithCard": [Function],
+            ":tellWithLinkAccountCard": [Function],
+            ":tellWithPermissionCard": [Function],
+            "AlexaSkillEvent.SkillAccountLinked": [Function],
+            "AlexaSkillEvent.SkillDisabled": [Function],
+            "AlexaSkillEvent.SkillEnabled": [Function],
+            "AlexaSkillEvent.SkillPermissionAccepted": [Function],
+            "AlexaSkillEvent.SkillPermissionChanged": [Function],
+          },
+          "_eventsCount": 23,
+          "_maxListeners": Infinity,
+          "domain": null,
+          "skill": [Circular],
+        },
+        "type": "IntentHandler",
+      },
+    ],
+    "props": Object {
+      "$$type": "VoiceSkill",
+      "children": <INTENTHANDLER
+        intent="LaunchRequest"
+      />,
+    },
+    "root": null,
+    "type": "VoiceSkill",
+  },
+  "rendered": Object {
+    "LaunchRequest": [Function],
+  },
+}
+`;

@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Base Component should have base properties 1`] = `
+BaseComponent {
+  "children": Array [],
+  "props": Object {},
+  "root": undefined,
+  "type": undefined,
+}
+`;
