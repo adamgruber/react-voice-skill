@@ -9,6 +9,7 @@
   "scripts": {
     "lint": "eslint src",
     "test": "jest",
+    "tdd": "jest --watch",
     "build": "babel src -d lib",
     "demo": "babel-node examples/hello-world"
   },
