@@ -1,0 +1,22 @@
+{
+  "name": "react-alexa-hello-world",
+  "version": "0.0.1",
+  "description": "\"Hello World Example\"",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "alexa",
+    "skill",
+    "example",
+    "react"
+  ],
+  "author": "Adam Gruber",
+  "license": "MIT",
+  "dependencies": {
+    "alexa-sdk": "^1.0.25",
+    "react": "^16.2.0",
+    "react-reconciler": "^0.7.0"
+  }
+}
