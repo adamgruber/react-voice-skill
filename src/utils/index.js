@@ -1,3 +1,4 @@
+/* eslint no-return-assign: 0 */
 import Alexa from 'alexa-sdk';
 import { EventEmitter } from 'events';
 import VoiceSkill from '../components/VoiceSkill';
@@ -39,11 +40,12 @@ function createElement(type, props) {
     ROOT: () => {
       const alexa = Alexa.handler(props.event, props.context);
       alexa.appId = props.appId;
+      alexa.resources = props.resources || {};
       return alexa;
     },
     RESPONSE_ROOT: () => props.handlerContext,
 
-    VOICESKILL: () => new VoiceSkill(null, { ...props, $$type: 'VoiceSkill' }),
+    VOICESKILL: () => new VoiceSkill(ROOT_NODE, { ...props, $$type: 'VoiceSkill' }),
     INTENTHANDLER: () => new IntentHandler(ROOT_NODE, { ...props, $$type: 'IntentHandler' }),
 
     RESPONSE: () => new Response(RESPONSE_ROOT_NODE, { ...props, $$type: 'Response' }),
@@ -55,9 +57,9 @@ function createElement(type, props) {
 
   if (elementCreator) {
     return elementCreator();
-  } else {
-    throw new Error(`Unknown element: ${type}`);
   }
+
+  throw new Error(`Unknown element: ${type}`);
 }
 
 export {

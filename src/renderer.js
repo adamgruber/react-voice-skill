@@ -99,14 +99,16 @@ const AlexaRenderer = ReactFiberReconciler({
  * @param {string} options.appId Alexa App ID
  * @param {object} options.event Lambda request event
  * @param {object} options.context Lambda request context
+ * @param {object} options.resources Language translations
  * @return {object}
  */
-const renderToAlexa = (element, { appId, event, context }) => {
-  const container = createElement('ROOT', { appId, event, context });
+const renderToAlexa = (element, { appId, event, context, resources }) => {
+  console.log('renderToAlexa');
+  const container = createElement('ROOT', { appId, event, context, resources });
   const node = AlexaRenderer.createContainer(container);
+  console.log(element.type);
   AlexaRenderer.updateContainer(element, node, null);
   const handlers = container.skill.render();
-  console.log(handlers);
   container.registerHandlers(handlers);
   return container.execute();
 };
@@ -123,7 +125,6 @@ const renderAlexaResponse = (element, handlerContext) => {
 
   // Get our response object from rendering components
   const response = container.res.render();
-  console.log(response);
 
   // Parse the response object to build our Alexa response
   Object.keys(response).forEach((type) => {
@@ -134,9 +135,9 @@ const renderAlexaResponse = (element, handlerContext) => {
         break;
 
       case 'Speak':
-        container.response.speak(res.content);
+        container.response.speak(container.t(res.content) || res.content);
         if (res.listen) {
-          container.response.listen(res.listen);
+          container.response.listen(container.t(res.listen) || res.listen);
         }
         break;
 
